@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
+import android.content.Intent
 import androidx.recyclerview.widget.RecyclerView
 
 class TanamanAdapter (private val listTanaman: List<Tanaman>) :
@@ -29,7 +29,13 @@ class TanamanAdapter (private val listTanaman: List<Tanaman>) :
         holder.imgTanaman.setImageResource(tanaman.gambar)
 
         holder.itemView.setOnClickListener {
-            Toast.makeText(holder.itemView.context, "Membuka detail ${tanaman.nama}", Toast.LENGTH_SHORT).show()
+            val context = holder.itemView.context
+            val intent = Intent(context, DetailActivity::class.java).apply{
+                putExtra("NAMA_TANAMAN", tanaman.nama)
+                putExtra("JENIS_TANAMAN", tanaman.jenis)
+                putExtra("GAMBAR_TANAMAN", tanaman.gambar)
+            }
+            context.startActivity(intent)
         }
     }
     override fun getItemCount(): Int = listTanaman.size

@@ -22,7 +22,7 @@
             android:layout_height="90dp"
             app:cardCornerRadius="45dp"
             app:cardElevation="0dp"
-            app:cardBackgroundColor=" ">
+            app:cardBackgroundColor="#DFF5E1">
 
             <ImageView
                 android:id="@+id/ivAboutLogo"
