@@ -93,7 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="• Nama Anda (NIM)"
+                android:text="• Aulia Fitriani (C030324012)"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
@@ -101,7 +101,34 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="• Nama Rekan Tim (NIM)"
+                android:text="• Ahmad Ikhtiar Priadin (C030324059)"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="• Najwa Syifa (C030324048)"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="• Muhammad Andria Almadani (C030324028)"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="• Muhammad Rehan (C030324141)"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 

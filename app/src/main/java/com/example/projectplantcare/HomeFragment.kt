@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -19,11 +20,17 @@ class HomeFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
+        val tvSapaan = view.findViewById<TextView>(R.id.tvSapaan)
         val ivNotif = view.findViewById<ImageView>(R.id.ivNotif)
         ivNotif.setOnClickListener {
             val intent = Intent(activity, NotificationActivity::class.java)
             startActivity(intent)
         }
+
+        val sharedPref = activity?.getSharedPreferences("UserSession", AppCompatActivity.MODE_PRIVATE)
+        val username = sharedPref?.getString("USERNAME", "Pengguna")
+        tvSapaan.text = "Selamat datang, $username!👋"
+
 
         val rvPopulerHome = view.findViewById<RecyclerView>(R.id.rvPopulerHome)
         rvPopulerHome.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)

@@ -17,7 +17,7 @@ class Login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         enableEdgeToEdge()
-        delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_NO //paksa mode terang
+        delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_NO
         setContentView(R.layout.activity_login)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -36,19 +36,28 @@ class Login : AppCompatActivity() {
         }
 
         btnLogin.setOnClickListener {
-            val username = etUsernameLogin.text.toString().trim()//untuk menghilangkan spasi
-            val password = etPasswordLogin.text.toString().trim()
+            val inputUsername = etUsernameLogin.text.toString().trim()
+            val inputPassword = etPasswordLogin.text.toString().trim()
 
-            if (username.isEmpty() || password.isEmpty()) {
+            val sharedPref = getSharedPreferences("UserSession", MODE_PRIVATE)
+            val registeredUsername = sharedPref.getString("USERNAME", "")
+            val registeredPassword = sharedPref.getString("PASSWORD", "")
+
+            if (inputUsername.isEmpty() || inputPassword.isEmpty()) {
                 Toast.makeText(this, "Username atau Password Tidak Boleh Kosong", Toast.LENGTH_SHORT).show()
             }
 
-            else if (username == "admin" && password == "12345") {
+            else if ((inputUsername == registeredUsername && inputPassword == registeredPassword) ||
+                (inputUsername == "admin" && inputPassword == "12345")) {
+
+                Toast.makeText(this, "Login Berhasil", Toast.LENGTH_SHORT).show()
+
                 val intentLogin = Intent(this, Dashboard::class.java)
-                intentLogin.putExtra("username", username)
+                intentLogin.putExtra("username", inputUsername)
                 startActivity(intentLogin)
                 finish()
-            } else {
+            }
+            else {
                 Toast.makeText(this, "Username atau Password Salah", Toast.LENGTH_SHORT).show()
             }
         }

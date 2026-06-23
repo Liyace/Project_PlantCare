@@ -18,6 +18,12 @@ class Dashboard : AppCompatActivity() {
             tampilkanFragment(HomeFragment())
         }
 
+        val homeFragment = HomeFragment()
+        val bundle = Bundle()
+        bundle.putString("username", intent.getStringExtra("username"))
+        homeFragment.arguments = bundle
+
+
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {

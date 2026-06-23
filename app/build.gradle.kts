@@ -5,6 +5,10 @@ plugins {
 
 android {
     namespace = "com.example.projectplantcare"
+
+    buildFeatures {
+        viewBinding = true
+    }
     compileSdk {
         version = release(36)
     }
